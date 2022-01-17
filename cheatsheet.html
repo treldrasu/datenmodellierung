@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+
+    <!-- style.css -->
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Datenmodellierung</title>
+</head>
+<body>
+
+    <div class="container">
+        <div id="erd" class="row mt-3">
+            <h2>Entity Relationship Diagramme</h2>
+            <div class="row row-cols-2">
+                <div class="col text-center">
+                    <div class="card">
+                        <div class="card-header">Entität</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="rect">Tabellenname</div>
+                                </div>
+                                <div class="col text-start">
+                                    <p>Eine Informationseinheit. Ein Objekt aus der realen oder der Vorstellungswelt.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col text-center">
+                    <div class="card">
+                        <div class="card-header">Relationen</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="diamond">
+                                        <div class="diamond-inner">
+                                            Relationsname
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col text-start">
+                                    <p>
+                                        Stellt eine Relation zwischen Tabellen dar.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col text-center">
+                    <div class="card">
+                        <div class="card-header">Attribute</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="oval">Attribut</div>
+                                </div>
+                                <div class="col text-start">
+                                    <p>Ellipse kennzeichnet ein Attribut. Der Attributname ist in der Ellipse enthalten.</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="oval"><u>ID</u></div>
+                                </div>
+                                <div class="col text-start">
+                                    <p>Handelt es sich um einen Primärschlüßel wird dieser unterstrichen</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col text-center">
+                    <div class="card">
+                        <div class="card-header">Kardinaltäten</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div>
+                                        <p class="kad">[n..m]</p>
+                                    </div>
+                                </div>
+                                <div class="col text-start">
+                                    <p>Mehrere zu mehreren</p>
+                                    <small class="text-muted">Bsp.: Ein Student nimmt an vielen Kursen teil, Ein Kurs besteht aus mehreren Studenten.</small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <div>
+                                        <p class="kad">[1..n] or [n..1]</p>
+                                    </div>
+                                </div>
+                                <div class="col text-start">
+                                    <p>Eine Entität zu mehreren</p>
+                                    <small class="text-muted">Bsp.: Ein Student nimmt an genau einem Kursen teil, Ein Kurs besteht aus mehreren Studenten.</small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <div>
+                                        <p class="kad">[1..1]</p>
+                                    </div>
+                                </div>
+                                <div class="col text-start">
+                                    <p>Eine Entität zu einer Entität</p>
+                                    <small class="text-muted">Bsp.: Ein Student nimmt an genau einem Kursen teil, Ein Kurs besteht aus genau einem Studenten.</small></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div id="normalisierung" class="row mt-3">
+            <h2>Normalisierung</h2>
+            <div class="row row-cols-3"> <!--Abhängigkeiten-->
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">Funktionale Abhängigkeit</div>
+                        <div class="card-body">
+                            <p>Eine Funktionale Abhängigkeit zwischen Attribut Y und Attribut X liegt dann vor, wenn es zu jedem X genau ein Y gibt.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">Voll funktionale Abhängigkeit</div>
+                        <div class="card-body">
+                            <p>Eine vollständig funktionale Abhängigkeit liegt dann vor, wenn dass Nicht-Schlüsselattribut nicht nur von einem Teil der Attribute eines zusammengesetzten Schlüsselkandidaten funktional abhängig ist, sondern von allen Teilen eines Relationstyps.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">Transitive Abhängigkeit</div>
+                        <div class="card-body">
+                            <p>Eine transitive Abhängigkeit liegt dann vor, wenn Y von X funktional abhängig und Z von Y, so ist Z von X funktional abhängig. Diese Abhängigkeit ist transitiv.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-1"> 
+                <div class="col"> <!--Null-->
+                    <div class="card">
+                        <div class="card-header">Nullte Normalform</div>
+                        <div class="card-body">
+                            <p>Ein häufiges Beispiel für eine Tabelle in der Nullten Normalform ist eine unnormalisierte Rechnungsinformation, die Stück für Stück normalisiert werden muss. Während der Anforderungsanalyse in der Datenbankentwicklung ist folgende Rechnungsinformation aufgenommen worden:</p>
+                            <table class="table table-bordered table-sm mt-2">
+                                <thead>
+                                    <tr>
+                                        <th>R.-Nr</th>
+                                        <th>Datum</th>
+                                        <th>Name</th>
+                                        <th>Straße</th>
+                                        <th>Ort</th>
+                                        <th>Artikel</th>
+                                        <th>Anzahl</th>
+                                        <th>Preis</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>187</td>
+                                        <td>01.01.2022</td>
+                                        <td>Max Mustermann</td>
+                                        <td>Straße. 1</td>
+                                        <td>12345 Musterort</td>
+                                        <td>Bleistift</td>
+                                        <td>5</td>
+                                        <td>1,00 €</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col"> <!--1 NF-->
+                    <div class="card">
+                        <div class="card-header">1. Normalform</div>
+                        <div class="card-body">
+                            <p>Ein Relationstyp (Tabelle) befindet sich in der ersten Normalform (1NF), wenn die Wertebereiche der Attribute des Relationstypen <b>atomar</b> sind.</p>
+                            <table class="table table-bordered table-sm mt-2">
+                                <thead>
+                                    <tr>
+                                        <th>R.-Nr</th>
+                                        <th>Datum</th>
+                                        <th>Name</th>
+                                        <th>Vorname</th>
+                                        <th>Straße</th>
+                                        <th>Hnr</th>
+                                        <th>PLZ</th>
+                                        <th>Ort</th>
+                                        <th>Artikel</th>
+                                        <th>Anzahl</th>
+                                        <th>Preis</th>
+                                        <th>Währung</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>187</td>
+                                        <td>01.01.2022</td>
+                                        <td>Mustermann</td>
+                                        <td>Max</td>
+                                        <td>Straße</td>
+                                        <td>1</td>
+                                        <td>12345</td>
+                                        <td>Musterort</td>
+                                        <td>Bleistift</td>
+                                        <td>5</td>
+                                        <td>1,00</td>
+                                        <td>€</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                           <small>Es bedeutet, dass jede Information innerhalb einer Tabelle eine eigene Tabellenspalte bekommt und zusammenhängende Informationen, wie zum Beispiel die Postleitzahl (PLZ) und der Ort, nicht in einer Tabellenspalte vorliegen dürfen.</small> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col"> <!--2 NF-->
+                    <div class="card">
+                        <div class="card-header">2. Normalform</div>
+                        <div class="card-body">
+                            <p>Ein Relationstyp (Tabelle) befindet sich genau dann in der zweiten Normalform (2NF), wenn er sich in der ersten Normalform (1NF) befindet und jedes Nichtschlüsselattribut von jedem Schlüsselkandidaten voll funktional abhängig ist.</p>
+                            <div class="row">
+                                <div class="col-auto">
+                                    <label class="mt-2"><b>Rechnung</b></label>
+                                    <table class="table table-bordered table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>R.Nr</th>
+                                                <th>Datum</th>
+                                                <th>Knr.</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>187</td>
+                                                <td>01.01.2022</td>
+                                                <td>007</td>
+                                            </tr>
+                                    </table>
+                                </div>
+                                <div class="col-auto">
+                                    <label class="mt-2"><b>Kunde</b></label>
+                                    <table class="table table-bordered table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>Knr</th>
+                                                <th>Name</th>
+                                                <th>Vorname</th>
+                                                <th>Straße</th>
+                                                <th>Hnr.</th>
+                                                <th>PLZ</th>
+                                                <th>Ort</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>007</td>
+                                                <td>Mustermann</td>
+                                                <td>Max</td>
+                                                <td>Musterstr.</td>
+                                                <td>1</td>
+                                                <td>12345</td>
+                                                <td>Musterort</td>
+                                            </tr>
+                                    </table>
+                                </div>
+                                <div class="col-auto">
+                                    <label class="mt-2"><b>Rechnungsposition</b></label>
+                                    <table class="table table-bordered table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>R.P.Nr</th>
+                                                <th>R.Nr</th>
+                                                <th>Art.Nr</th>
+                                                <th>Anzahl</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>187</td>
+                                                <td>69</td>
+                                                <td>5</td>
+                                            </tr>
+                                    </table>
+                                </div>
+                                <div class="col-auto">
+                                    <label class="mt-2"><b>Artikel</b></label>
+                                    <table class="table table-bordered table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>Art.Nr</th>
+                                                <th>Artikel</th>
+                                                <th>Preis</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>69</td>
+                                                <td>Bleistift</td>
+                                                <td>1,00</td>
+                                            </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+
+                            <small>Die Spalten, die von einem <b>Schlüsselkandidaten nicht vollständig funktional abhängig</b> sind, werden in einer <b>Untertabelle ausgelagert.</b> Der Teil des Schlüsselkandidaten, von dem eine ausgelagerten Spalte funktional abhängig ist, wird Primärschlüssel der neuen Tabelle. In der zweiten Normalform werden auch die ersten Beziehungen in Datenbanken festgelegt.</small> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col"> <!--3 NF-->
+                    <div class="card">
+                        <div class="card-header">3. Normalform</div>
+                        <div class="card-body">
+                            <p>Ein Relationstyp befindet sich genau dann in der dritten Normalform (3NF), wenn er sich in der zweiten Normalform (2NF) befindet und kein Nichtschlüsselattribut transitiv von einem Kandidatenschlüssel abhängt.</p>
+                            <div class="row">
+                                <div class="col">
+                                    <p>Die Kundeninformationen liegen nun in der zweiten Normalform (2NF) vor:</p>
+                                    <label class="mt-2"><b>Kunde</b></label>
+                                    <table class="table table-bordered table-sm w-auto">
+                                        <thead>
+                                            <tr>
+                                                <th>Knr</th>
+                                                <th>Name</th>
+                                                <th>Vorname</th>
+                                                <th>Straße</th>
+                                                <th>Hnr.</th>
+                                                <th>PLZ</th>
+                                                <th>Ort</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>007</td>
+                                                <td>Mustermann</td>
+                                                <td>Max</td>
+                                                <td>Musterstr.</td>
+                                                <td>1</td>
+                                                <td>12345</td>
+                                                <td>Musterort</td>
+                                            </tr>
+                                    </table>
+                                    <p>Nach der Anwendung der Dritten Normalform (3NF) sieht das Ergebnis folgendermaßen aus:</p>
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <label class="mt-2"><b>Kunde</b></label>
+                                            <table class="table table-bordered table-sm w-auto">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Knr</th>
+                                                        <th>Name</th>
+                                                        <th>Vorname</th>
+                                                        <th>Straße</th>
+                                                        <th>Hnr.</th>
+                                                        <th>PLZ</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>007</td>
+                                                        <td>Mustermann</td>
+                                                        <td>Max</td>
+                                                        <td>Musterstr.</td>
+                                                        <td>1</td>
+                                                        <td>12345</td>
+                                                    </tr>
+                                            </table>
+                                        </div>
+                                        <div class="col-auto">
+                                            <label class="mt-2"><b>Postleitzahl</b></label>
+                                            <table class="table table-bordered table-sm w-auto">
+                                                <thead>
+                                                    <tr>
+                                                        <th>PLZ</th>
+                                                        <th>Ort</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>12345</td>
+                                                        <td>Musterort</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <small>In der Tabelle "Kunde" sind die Attribute "Vorname", "Straße" und "PLZ" abhängig vom Attribut "Name", nicht vom Primärschlüssel "Knr". Außerdem ist das Attribut "Ort" abhängig vom Attribut "PLZ". Die transitiv abhängigen Spalten werden in eine weitere Untertabelle ausgelagert, da sie nicht direkt vom Schlüsselkandidaten abhängen, sondern nur indirekt.</small> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    
+</body>
+</html>
