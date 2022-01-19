@@ -1,0 +1,6 @@
+SchülerNr,Name,Vorname,Klasse,Klassenlehrer,LernangebotsNr,Beschreibung,Zeit in h
+1,Jürgens,Ina,11a,Lempel,2,Tanz,12
+2,Schmidt,Tom,12a,Breier,3,Chro,22
+3,Jäger,Franz,11a,Lempel,"1,2,2003","Elektronik, Tanz, Chor","15,12,2002"
+4,Olsen,Ina,11b,Sommer,2,Tanz,5
+5,Jürgens,Paula,12a,Breier,1,Elektronik,23

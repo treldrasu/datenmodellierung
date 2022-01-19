@@ -1,0 +1,6 @@
+ID_Auftrag,Kunde,Straße,PLZ,ORT,ID_ARTIKEL,Bestellung,Anzahl,Preis
+101,Megabit GmbH,Zuse Str 1,86161,Augsburg,801,BlueRay DVD Laufwerk,8,200€
+101,Megabit GmbH,Zuse Str 1,86161,Augsburg,802,"1,5 TB HDD",2,150€
+102,Phase AG,Roboweg 3,86166,Augsburg,802,"1,5 TB HDD",2,150€
+102,Phase AG,Roboweg 3,86166,Augsburg,803,Laptop,2,900€
+103,Krause UG,Chipalle 7,86356,Neusäß,804,DVD Rohlinge,20,20€
